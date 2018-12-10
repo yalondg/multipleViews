@@ -11,18 +11,18 @@
 
 //Infinite scrolling TableView displaying Fibonacci sequence
 
-// 1. Generate fibonacci numbers, recursive
-//// fibonacci algoirthim
-//---- easy
+// Read from input box
+    //Check if logged in already
 
+// Compare to a String
+    // Compare to an array of Strings
 
-// 2. Method to store some amount of numbers for the tableview to display
+// Load second view Controller
 
-// 3. Mechanism to add addtional fibonacci numbers (infinte)
+// Load table with username
 
+// Log Out button
 
-// 4. Create the tableview and add text to table view cell
-//-- easy storyboard -- we did this in class
 
 
 import UIKit
@@ -31,10 +31,14 @@ class ViewController: UIViewController {
 
     var myString = "default"
     
+    @IBOutlet weak var loginField: UITextField!
     var secondVC:SecondViewController? = nil
     
     @IBAction func buttonPressed(_ sender: Any) {
-        let secondVC:SecondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+        let text: String = loginField.text ?? ""
+        print(text)
+        
+        let secondVC:SecondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController //goes to second story board when "Programatic" is clicked
         
         self.present(secondVC, animated: true, completion: nil)
     }
