@@ -15,6 +15,8 @@
 
 // Load second view Controller
 
+//create user defaults
+
 // Load table with username
 
 // Log Out button
@@ -29,8 +31,12 @@ class ViewController: UIViewController {
 
     var myString = "default"
     
+    //the defaultvalues to store user data
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var pswdField: UITextField!
     @IBOutlet weak var loginField: UITextField!
+    
     var secondVC:SecondViewController? = nil
     
     @IBAction func buttonPressed(_ sender: Any) {
@@ -40,6 +46,10 @@ class ViewController: UIViewController {
         
         let pswdi = "test"
         let logini = "test"
+        
+        self.defaults.set(pswdi, forKey: "pswd")
+        self.defaults.set(logini, forKey: "id")
+        print(self.defaults.string(forKey: "id") ?? "mistake")
         
         if (logini == loginInput && pswdi == pswdInput){
             print("login")
@@ -55,8 +65,8 @@ class ViewController: UIViewController {
         print ("First contoller loaded")
         myString = "I am modified"
         
-        secondVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController)
-        secondVC?.userName = "Marie"
+       
+        //secondVC?.userName = "Marie"
     }
     
     
