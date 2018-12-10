@@ -7,10 +7,6 @@
 //
 
 
-// Sliding window --
-
-//Infinite scrolling TableView displaying Fibonacci sequence
-
 // Read from input box
     //Check if logged in already
 
@@ -25,22 +21,34 @@
 
 
 
+
+
 import UIKit
 
 class ViewController: UIViewController {
 
     var myString = "default"
     
+    @IBOutlet weak var pswdField: UITextField!
     @IBOutlet weak var loginField: UITextField!
     var secondVC:SecondViewController? = nil
     
     @IBAction func buttonPressed(_ sender: Any) {
-        let text: String = loginField.text ?? ""
-        print(text)
+        let loginInput: String = loginField.text ?? ""
+        let pswdInput: String = pswdField.text ?? ""
+        print(loginInput + pswdInput)
         
-        let secondVC:SecondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController //goes to second story board when "Programatic" is clicked
+        let pswdi = "test"
+        let logini = "test"
         
-        self.present(secondVC, animated: true, completion: nil)
+        if (logini == loginInput && pswdi == pswdInput){
+            print("login")
+            let secondVC:SecondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController //goes to second story board when "Programatic" is clicked
+            
+            self.present(secondVC, animated: true, completion: nil)
+        }
+        
+       
     }
     override func viewDidLoad() {
         super.viewDidLoad()
